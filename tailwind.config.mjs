@@ -7,9 +7,21 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+        playfair: ['"Playfair Display"', 'serif'],
+      },
+      screens: {
+        'xxs': '280px',
+        'xs': '400px'
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary:"#AE845F",
+        secondary:"#222222",
+        sub:"#767676"
+        
       },
     },
   },
