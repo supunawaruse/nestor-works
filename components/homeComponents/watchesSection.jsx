@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const WatchesSection = () => {
@@ -36,7 +37,7 @@ const WatchesSection = () => {
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
                     {watches.map((watch) => (
-                        <div key={watch.id} className="group overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md">
+                        <Link href={`/shop/${watch.id}`} key={watch.id} className="group overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md">
                             <Image
                                 src={watch.image}
                                 alt={watch.title}
@@ -48,7 +49,7 @@ const WatchesSection = () => {
                                 <h3 className="text-sm md:text-base text-secondary mb-1">{watch.title}</h3>
                                 <p className="text-sm md:text-base text-primary">{watch.price}</p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
