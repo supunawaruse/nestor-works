@@ -3,19 +3,18 @@ import Image from 'next/image';
 import React from 'react'
 
 const About = () => {
-    const teamMembers = [
-        {
-            id: 1,
-            image: '/blog.jpg',
-            title: 'Top 10 Watches for Men in 2023',
-            description: 'Discover the best watches for men this year, featuring luxury, sport, and minimalist designs.',
-        },
-        {
-            id: 2,
-            image: '/blog.jpg',
-            title: 'How to Choose the Perfect Watch',
-            description: 'A comprehensive guide to help you pick the right watch for your style and needs.',
-        }
+
+    const images = [
+        '/shop/shop1.jpg',
+        '/shop/shop2.jpg',
+        '/shop/shop3.jpg',
+        '/shop/shop4.jpg',
+        '/shop/shop5.jpg',
+        '/shop/shop1.jpg',
+        '/shop/shop2.jpg',
+        '/shop/shop3.jpg',
+        '/shop/shop4.jpg',
+        '/shop/shop5.jpg',
     ];
     return (
         <>
@@ -41,7 +40,36 @@ const About = () => {
                 <p className='font-playfair text-secondary text-lg md:text-3xl text-center'>“ We are commutity led, with a continued commitment to be the most responsible
                     version of ourselves and we never rest on our laurels. ”</p>
             </div>
-            <div className='px-4 py-8 md:p-20 lg:px-24'>
+            {/* need to add a photo gallery of 100th anniversary */}
+            <section className="py-12 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    {/* Title */}
+                    <h2 className="text-secondary text-3xl md:text-5xl font-playfair text-center mb-4">Celebrating 100 Years of Excellence</h2>
+
+                    {/* Description */}
+                    <p className="text-center text-sm text-sub mb-8 max-w-2xl mx-auto">
+                        For a century, we have been crafting timeless timepieces that tell more than just time.
+                        Explore our journey through the years with this collection of memorable moments.
+                    </p>
+
+                    {/* Photo Gallery */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                        {images.map((image, index) => (
+                            <div key={index} className="relative aspect-w-1 aspect-h-1 overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md rounded-sm">
+                                <Image
+                                    src={image}
+                                    alt={`Gallery Image ${index + 1}`}
+                                    height={510}
+                                    width={680}
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+            {/* <div className='px-4 py-8 md:p-20 lg:px-24'>
                 <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-center mb-8">
                     We Pride Ourselves On Have A
                     Team Of Highly Skilled
@@ -73,7 +101,7 @@ const About = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
