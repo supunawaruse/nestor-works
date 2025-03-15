@@ -12,17 +12,17 @@ const Footer = () => {
     return (
         <footer className="bg-[#F5F3F2] md:px-24 lg:px-64 py-4 px-4">
             <div className="flex flex-col md:flex-row md:justify-between gap-y-4">
-                <div className="mb-1">
-                    <Image src="logo.svg" height={0} width={0} className='h-20 w-32' alt='' />
-                    <p className="text-secondary">482 123 567 59</p>
-                    <p className="text-secondary">BESA: Glenwood Street, Lenitham, W/</p>
-                    <Link href="https://www.lenys.org.uk" className="text-primary transition duration-300">
-                        lena.leningsport.com
+                <div className="mb-1 text-sm">
+                    <Image src="/logo.png" height={403} width={817} className='h-auto w-32 xs:w-44 mb-2' alt='' />
+                    <p className="text-secondary">091 22 58 306</p>
+                    <p className="text-secondary">No 50, Station Road, Ambalangoda</p>
+                    <Link href="/" className="text-primary transition duration-300">
+                        www.nestorworks.lk
                     </Link>
                 </div>
 
                 <div className="mb-1 py-4">
-                    <h3 className="text-lg font-semibold mb-4">Links</h3>
+                    <h3 className="text-base font-semibold mb-4">Links</h3>
                     <ul className="space-y-2">
                         {
                             links.map((link, idx) => (
@@ -35,7 +35,7 @@ const Footer = () => {
 
             <div className="text-center">
                 <p className="text-secondary text-sm">
-                    &copy; {new Date().getFullYear()} LENYS. All rights reserved.
+                    &copy; {new Date().getFullYear()} Nestor Works. All rights reserved.
                 </p>
             </div>
         </footer>

@@ -18,9 +18,9 @@ const Navbar = () => {
 
     return (
         <div className="w-full h-20 flex items-center justify-between px-8 md:px-12 lg:px-16 shadow-md">
-            <div>
-                <Image src="logo.svg" height={0} width={0} className='h-20 w-32' alt='' />
-            </div>
+            <Link href="/">
+                <Image src="/logo.png" height={403} width={600} className='h-auto w-32 xs:w-36' alt='' />
+            </Link>
 
             <div className="hidden md:flex space-x-6 text-[15px]">
                 {

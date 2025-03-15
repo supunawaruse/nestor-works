@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Carousel = () => {
     return (
 
@@ -10,14 +12,14 @@ const Carousel = () => {
 
             <div className="absolute inset-0 flex flex-col justify-center md:px-48 md:justify-center md:items-start items-center text-white p-4 md:p-8">
                 <div className="bg-secondary rounded-full px-8 py-2 mb-2 md:mb-6 text-base">
-                    Now Available
+                   20% Offers Available
                 </div>
                 <h2 className="font-playfair font-medium text-3xl sm:text-3xl md:text-5xl lg:text-7xl mb-3 md:mb-8 text-center md:text-left">
-                    Enhance Garden Unisex Watches In World
+                    Discover the Perfect Watch for Every Occasion
                 </h2>
-                <button className="bg-white text-secondary text-base hover:text-white px-10 py-2  hover:bg-secondary transition duration-300">
+                <Link href="/shop" className="bg-white text-secondary text-base hover:text-white px-10 py-2  hover:bg-secondary transition duration-300">
                     Shop Now
-                </button>
+                </Link>
             </div>
         </div>
     );

@@ -5,8 +5,6 @@ import FirstBannerSection from "@/components/homeComponents/firstBannerSection";
 import CategorySection from "@/components/homeComponents/categorySection";
 import NewArrivalSection from "@/components/homeComponents/newArrivalSection";
 import BrandsSection from "@/components/homeComponents/brandsSection";
-import SecondBannerSection from "@/components/homeComponents/secondBannerSection";
-import BlogsSection from "@/components/homeComponents/blogsSection";
 
 export default function Home() {
   return (
@@ -18,8 +16,8 @@ export default function Home() {
       <CategorySection />
       <NewArrivalSection />
       <BrandsSection />
-      <SecondBannerSection />
-      <BlogsSection />
+      {/* <SecondBannerSection /> */}
+      {/* <BlogsSection /> */}
     </div>
   );
 }

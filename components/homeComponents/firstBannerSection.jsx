@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const FirstBannerSection = () => {
@@ -25,9 +26,9 @@ const FirstBannerSection = () => {
                         height={256}
                         className="object-cover"
                     />
-                    <button className="text-white mt-4 text-sm px-10 py-4 border-2 border-white hover:bg-white hover:text-primary transition duration-300">
+                    <Link href="/shop" className="text-white mt-4 text-sm px-10 py-4 border-2 border-white hover:bg-white hover:text-primary transition duration-300">
                         EXPLORE MORE
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

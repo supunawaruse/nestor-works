@@ -1,12 +1,15 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const CategorySection = () => {
 
   const categories = [
-    { id: 1, image: 'category.jpg', name: 'Men' },
-    { id: 2, image: 'category.jpg', name: 'Women' },
-    { id: 3, image: 'category.jpg', name: 'Kids' },
-    { id: 4, image: 'category.jpg', name: 'Accessories' },
+    { id: 1, image: '/categories/mens.png', name: 'Mens Watches' },
+    { id: 2, image: '/categories/womens.png', name: 'Womens Watches' },
+    { id: 3, image: '/categories/silver.png', name: 'Silver Watches' },
+    { id: 4, image: '/categories/dress.png', name: 'Dress Watches' },
+
   ];
 
   return (
@@ -21,19 +24,24 @@ const CategorySection = () => {
         Discover our wide range of categories to find the perfect match for your style.
       </p>
 
-      <div className="grid grid-cols-1 xxs:grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-6">
         {categories.map((category) => (
-          <div key={category.id} className="relative group overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md">
-            <img
-              src={category.image}
-              alt={category.name}
-              className="w-full h-full object-cover"
-            />
+          <Link href="/shop" key={category.id} className="relative group overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md">
+            <div className="relative w-full">
+              <Image
+                src={category.image}
+                alt={category.name}
+                width={500}
+                height={500}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+            </div>
 
             <div className="absolute bottom-0 left-0 right-0 py-4">
               <h3 className="text-lg font-medium text-white text-center">{category.name}</h3>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
