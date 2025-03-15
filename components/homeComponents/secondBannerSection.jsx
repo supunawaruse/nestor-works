@@ -5,7 +5,7 @@ const SecondBannerSection = () => {
     return (
         <div className="relative w-full h-[400px] overflow-hidden">
             <Image
-                src="/banner2.jpg"
+                src="/banner6.jpg"
                 alt="Banner"
                 fill
                 className="object-cover"

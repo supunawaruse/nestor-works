@@ -4,7 +4,7 @@ import React from 'react'
 
 const DetailsSection = () => {
     return (
-        <div className='px-4 py-8 md:p-20 lg:px-24'>
+        <div className='px-4 py-8 md:p-20 lg:px-24 2xl:px-48'>
 
             <div className="flex flex-col md:flex-row md:space-x-12">
                 <div className="w-full md:w-1/2">

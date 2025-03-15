@@ -16,7 +16,7 @@ const WatchesSection = () => {
     ];
 
     return (
-        <div className='px-4 md:px-16 lg:px-24'>
+        <div className='px-4 pb-8 md:px-16 lg:px-24 2xl:px-48'>
             
                 <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-center mb-8">
                     OUR BEST SELLER

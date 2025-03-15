@@ -30,7 +30,7 @@ const BlogsSection = () => {
     ];
 
     return (
-        <div className='px-4 py-8 md:p-20 lg:px-24'>
+        <div className='px-4 py-8 md:p-20 lg:px-24 2xl:px-48'>
                 <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-center mb-8">
                     OUR BLOGS
                     <div className="w-16 h-1 bg-primary mx-auto mt-2"></div>

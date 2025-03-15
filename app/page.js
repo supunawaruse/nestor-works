@@ -1,10 +1,10 @@
 import Carousel from "@/components/homeComponents/carousel";
 import DetailsSection from "@/components/homeComponents/detailsSection";
 import WatchesSection from "@/components/homeComponents/watchesSection";
-import FirstBannerSection from "@/components/homeComponents/firstBannerSection";
 import CategorySection from "@/components/homeComponents/categorySection";
 import NewArrivalSection from "@/components/homeComponents/newArrivalSection";
 import BrandsSection from "@/components/homeComponents/brandsSection";
+import SecondBannerSection from "@/components/homeComponents/secondBannerSection";
 
 export default function Home() {
   return (
@@ -12,11 +12,11 @@ export default function Home() {
       <Carousel />
       <DetailsSection />
       <WatchesSection />
-      <FirstBannerSection />
-      <CategorySection />
+      <SecondBannerSection />
+      {/* <FirstBannerSection /> */}
       <NewArrivalSection />
+      <CategorySection />
       <BrandsSection />
-      {/* <SecondBannerSection /> */}
       {/* <BlogsSection /> */}
     </div>
   );

@@ -6,7 +6,7 @@ const Contact = () => {
     return (
         <div>
             <HeaderComponent title="Contacts" />
-            <div className='py-8 md:py-12 px-4 md:px-12 lg:px-24'>
+            <div className='py-8 md:py-12 px-4 md:px-12 lg:px-24 2xl:px-48'>
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="p-8">
                         <h2 className="font-playfair text-4xl text-secondary mb-4">How To Find Us</h2>
@@ -15,15 +15,15 @@ const Contact = () => {
                         </p>
                         <div className="space-y-4">
                             <div className="flex items-center gap-2">
-                                <Phone color='#222222' />
+                                <Phone color='#AE845F' />
                                 <span className="text-secondary">091 22 58 306</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <MapPin color='#222222' />
+                                <MapPin color='#AE845F' />
                                 <span className="text-secondary">No 50, Station Road, Ambalangoda</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <Mail color='#222222' />
+                                <Mail color='#AE845F' />
                                 <span className="text-secondary">nestorworks1914@gmail.com</span>
                             </div>
                         </div>

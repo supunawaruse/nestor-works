@@ -15,7 +15,7 @@ const BrandsSection = () => {
     ];
 
     return (
-        <div className='px-4 py-8 md:p-12 lg:px-24'>
+        <div className='px-4 py-8 md:px-12 lg:px-24 2xl:px-48'>
             <div className="overflow-hidden whitespace-nowrap">
                 <div className="inline-block animate-marquee">
                     {brands.map((brand) => (
