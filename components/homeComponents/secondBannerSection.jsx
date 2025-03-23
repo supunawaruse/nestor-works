@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const SecondBannerSection = () => {
@@ -15,9 +16,9 @@ const SecondBannerSection = () => {
                 <h2 className="font-playfair text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-8">
                     Be The First To Get Limited Editions
                 </h2>
-                <button className="bg-white text-black px-8 py-3  hover:bg-primary hover:text-white transition duration-300">
+                <Link href={"/shop"} className="bg-white text-black px-8 py-3  hover:bg-primary hover:text-white transition duration-300">
                     Shop New Collection
-                </button>
+                </Link>
             </div>
         </div>
     );
