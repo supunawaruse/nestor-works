@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import HeaderComponent from '@/components/headerComponent';
-import Image from 'next/image';
-import Link from 'next/link';
 import { collection, getDocs, query, where, limit, startAfter, orderBy } from 'firebase/firestore';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { db } from '@/lib/firebase';
@@ -32,7 +30,7 @@ const ShopPage = () => {
     const [totalWatches, setTotalWatches] = useState(0);
     const [loading, setLoading] = useState(false)
     const [totalPages, setTotalPages] = useState(1)
-    const itemsPerPage = 6;
+    const itemsPerPage = 9;
 
     useEffect(() => {
         fetchWatches();
@@ -64,7 +62,12 @@ const ShopPage = () => {
             setWatches(watchesData);
             setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]);
 
-            const totalQuery = query(watchesCollection);
+            let totalQuery = query(watchesCollection);
+            if (category) totalQuery = query(totalQuery, where('category', '==', category));
+            if (brand) totalQuery = query(totalQuery, where('brand', '==', brand));
+            if (price) totalQuery = query(totalQuery, where('price', '>=', minPrice), where('price', '<=', maxPrice));
+            if (dialColor) totalQuery = query(totalQuery, where('dialColor', '==', dialColor));
+
             const totalSnapshot = await getDocs(totalQuery);
             setTotalWatches(totalSnapshot.size);
         } catch (error) {
@@ -72,7 +75,6 @@ const ShopPage = () => {
         } finally {
             setLoading(false)
         }
-
     };
 
     const handleFilterChange = (key, value) => {
@@ -122,7 +124,8 @@ const ShopPage = () => {
     const activeFilters = Object.entries(filters).filter(([_, value]) => value);
 
     useEffect(() => {
-        if (totalWatches > itemsPerPage) {
+        console.log(totalWatches, 'totalwathces')
+        if (totalWatches < itemsPerPage) {
             setTotalPages(1)
         } else {
             setTotalPages(Math.ceil(totalWatches / itemsPerPage))

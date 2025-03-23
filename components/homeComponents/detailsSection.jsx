@@ -8,24 +8,24 @@ import { sampleWatches } from '@/lib/data';
 
 const DetailsSection = () => {
 
-    // const onclick = async () => {
-    //     try {
-    //         const watchesCollection = collection(db, "watches"); 
+    const onclick = async () => {
+        try {
+            const watchesCollection = collection(db, "watches"); 
 
-    //         for (const watch of sampleWatches) {
-    //             await addDoc(watchesCollection, watch);
-    //         }
+            for (const watch of sampleWatches) {
+                await addDoc(watchesCollection, watch);
+            }
 
-    //         console.log("Watches added successfully!");
-    //         alert("Watches added successfully!");
-    //     } catch (error) {
-    //         console.error("Error adding watches: ", error);
-    //         alert("Failed to add watches.");
-    //     }
-    // }
+            console.log("Watches added successfully!");
+            alert("Watches added successfully!");
+        } catch (error) {
+            console.error("Error adding watches: ", error);
+            alert("Failed to add watches.");
+        }
+    }
     return (
         <div className='px-4 py-8 md:p-20 lg:px-24 2xl:px-48'>
-            {/* <button onClick={onclick}>Click me</button> */}
+            <button onClick={onclick}>Click me</button>
             <div className="flex flex-col md:flex-row md:space-x-12">
                 <div className="w-full md:w-1/2">
                     <Image
