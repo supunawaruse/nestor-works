@@ -47,7 +47,7 @@ export const getWatchByDocumentId = async (id) => {
 };
 
 export const getRelatedProducts = async (category) => {
-    const q = query(collection(db, "watches"), where("category", "==", category), limit(4));
+    const q = query(collection(db, "watches"), where("category", "==", category), limit(5));
     const querySnapshot = await getDocs(q);
 
     const watchesData = querySnapshot.docs.map(doc => ({

@@ -89,9 +89,9 @@ const WatchPage = () => {
             <>
               <p className='text-sm text-sub mb-4'>
                 <Link href="/" className='hover:text-primary'>Home</Link> /{' '}
-                <Link href="/shop" className='hover:text-primary'>Shop</Link> / {watch?.name}
+                <Link href="/shop" className='hover:text-primary'>Shop</Link> / {watch?.name} {watch?.model}
               </p>
-              <h1 className="text-5xl font-normal font-playfair text-secondary">{watch?.name}</h1>
+              <h1 className="text-5xl font-normal font-playfair text-secondary">{watch?.name} {watch?.model}</h1>
               <p className="text-2xl text-primary font-medium mt-2 mb-6">${watch?.price}</p>
               <hr />
               <p className="text-sub text-[15px] mt-4">{watch?.shortDescription} There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>

@@ -37,7 +37,7 @@ const RelatedProducts = ({ category }) => {
                 </h2>
 
                 <div className="grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-                    {relatedWatches.filter((e => e.id !== params.id)).map((watch) => (
+                    {relatedWatches.filter((e => e.id !== params.id)).slice(0, 4).map((watch) => (
                         <WatchCard key={watch.id} watch={watch} />
                     ))}
                 </div>
