@@ -5,11 +5,10 @@ import React from 'react';
 const CategorySection = () => {
 
   const categories = [
-    { id: 1, image: '/categories/mens.png', name: 'Mens Watches' },
-    { id: 2, image: '/categories/womens.png', name: 'Womens Watches' },
-    { id: 3, image: '/categories/silver.png', name: 'Silver Watches' },
-    { id: 4, image: '/categories/dress.png', name: 'Dress Watches' },
-
+    { id: 1, image: '/categories/mens.png', name: 'Mens Watches', path: 'Mens' },
+    { id: 2, image: '/categories/womens.png', name: 'Ladies Watches', path: 'Ladies' },
+    { id: 3, image: '/categories/silver.png', name: 'Sports Watches', path: 'Sports' },
+    { id: 4, image: '/categories/dress.png', name: 'Dress Watches', path: 'Dress' },
   ];
 
   return (
@@ -25,7 +24,7 @@ const CategorySection = () => {
 
       <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-6">
         {categories.map((category) => (
-          <Link href="/shop" key={category.id} className="relative group overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md">
+          <Link href={`/shop?category=${category.path}`} key={category.id} className="relative group overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md">
             <div className="relative w-full">
               <Image
                 src={category.image}

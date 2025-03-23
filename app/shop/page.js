@@ -12,6 +12,7 @@ import Pagination from '@/components/pagination';
 import ShopWatchesGrid from '@/components/shopWatchesGrid';
 import AppliedFilters from '@/components/appliedFilter';
 import FilterSection from '@/components/filterSection';
+import WatchesGridSkeleton from '@/components/skeletons/watchesGridSkeleton';
 
 const ShopPage = () => {
     const searchParams = useSearchParams();
@@ -30,6 +31,7 @@ const ShopPage = () => {
     const [lastVisible, setLastVisible] = useState(null);
     const [totalWatches, setTotalWatches] = useState(0);
     const [loading, setLoading] = useState(false)
+    const [totalPages, setTotalPages] = useState(1)
     const itemsPerPage = 6;
 
     useEffect(() => {
@@ -118,7 +120,14 @@ const ShopPage = () => {
     };
 
     const activeFilters = Object.entries(filters).filter(([_, value]) => value);
-    const totalPages = Math.ceil(totalWatches / itemsPerPage);
+
+    useEffect(() => {
+        if (totalWatches > itemsPerPage) {
+            setTotalPages(1)
+        } else {
+            setTotalPages(Math.ceil(totalWatches / itemsPerPage))
+        }
+    }, [totalWatches])
 
     return (
         <div>
@@ -169,7 +178,7 @@ const ShopPage = () => {
                     )}
 
                     {
-                        !loading && (
+                        !loading ? (
                             watches.length > 0 ? (
                                 <>
                                     <ShopWatchesGrid watches={watches} />
@@ -182,6 +191,11 @@ const ShopPage = () => {
                             ) : (
                                 <div>No Watches Found</div>
                             )
+                        ) : (
+                            <div className='grid grid-cols-3 gap-2'>
+                                <WatchesGridSkeleton />
+                            </div>
+
                         )
                     }
                 </div>
