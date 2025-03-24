@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import HeaderComponent from '@/components/headerComponent';
-import { collection, getDocs, query, where, limit, startAfter, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, where, limit, startAfter, orderBy, getCountFromServer } from 'firebase/firestore';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { db } from '@/lib/firebase';
 import { BRANDS, CATEGORIES, DIALCOLORS, PRICE } from '@/lib/constants';
@@ -27,7 +27,6 @@ const ShopPage = () => {
     const [currentPage, setCurrentPage] = useState(parseInt(searchParams.get('page')) || 1);
     const [watches, setWatches] = useState([]);
     const [lastVisible, setLastVisible] = useState(null);
-    const [totalWatches, setTotalWatches] = useState(0);
     const [loading, setLoading] = useState(false)
     const [totalPages, setTotalPages] = useState(1)
     const itemsPerPage = 9;
@@ -38,7 +37,7 @@ const ShopPage = () => {
 
     const fetchWatches = async () => {
         try {
-            setLoading(true)
+            setLoading(true);
             const watchesCollection = collection(db, 'watches');
             let q = query(watchesCollection, orderBy('price'));
 
@@ -46,30 +45,26 @@ const ShopPage = () => {
             let minPrice, maxPrice;
             if (price) {
                 [minPrice, maxPrice] = price.split('-').map(Number);
+                q = query(q, where('price', '>=', minPrice), where('price', '<=', maxPrice));
             }
-
             if (category) q = query(q, where('category', '==', category));
             if (brand) q = query(q, where('brand', '==', brand));
-            if (price) q = query(q, where('price', '>=', minPrice), where('price', '<=', maxPrice));
             if (dialColor) q = query(q, where('dialColor', '==', dialColor));
-            if (currentPage > 1 && lastVisible) q = query(q, startAfter(lastVisible));
+
+            const countSnapshot = await getCountFromServer(q);
+            const totalCount = countSnapshot.data().count;
+            setTotalPages(Math.ceil(totalCount / itemsPerPage));
+
+            if (currentPage > 1 && lastVisible) {
+                q = query(q, startAfter(lastVisible));
+            }
 
             q = query(q, limit(itemsPerPage));
-
             const querySnapshot = await getDocs(q);
             const watchesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
             setWatches(watchesData);
             setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]);
-
-            let totalQuery = query(watchesCollection);
-            if (category) totalQuery = query(totalQuery, where('category', '==', category));
-            if (brand) totalQuery = query(totalQuery, where('brand', '==', brand));
-            if (price) totalQuery = query(totalQuery, where('price', '>=', minPrice), where('price', '<=', maxPrice));
-            if (dialColor) totalQuery = query(totalQuery, where('dialColor', '==', dialColor));
-
-            const totalSnapshot = await getDocs(totalQuery);
-            setTotalWatches(totalSnapshot.size);
         } catch (error) {
             console.log(error)
         } finally {
@@ -122,15 +117,6 @@ const ShopPage = () => {
     };
 
     const activeFilters = Object.entries(filters).filter(([_, value]) => value);
-
-    useEffect(() => {
-        console.log(totalWatches, 'totalwathces')
-        if (totalWatches < itemsPerPage) {
-            setTotalPages(1)
-        } else {
-            setTotalPages(Math.ceil(totalWatches / itemsPerPage))
-        }
-    }, [totalWatches])
 
     return (
         <div>
