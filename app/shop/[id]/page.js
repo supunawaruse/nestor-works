@@ -38,7 +38,7 @@ const WatchPage = () => {
     <div className='px-4 py-8 md:p-16 lg:p-20 lg:px-24 2xl:px-48'>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className='flex flex-col lg:flex-row gap-4 xs:px-4 sm:px-24 md:px-0'>
-          <div className='flex lg:flex-col gap-4 order-2 lg:order-1 '>
+          {/* <div className='flex lg:flex-col gap-4 order-2 lg:order-1 '>
             {loading ? (
               <SmallImagesSkeleton />
             ) : (
@@ -63,10 +63,10 @@ const WatchPage = () => {
                 </div>
               </>
             )}
-          </div>
+          </div> */}
 
 
-          <div className='flex-1 order-1 lg:order-2'>
+          <div className='flex-1 order-1 lg:order-2 md:p-8'>
             {loading ? (
               <SingleImageSkeleton />
             ) : (
@@ -94,7 +94,7 @@ const WatchPage = () => {
               <h1 className="text-5xl font-normal font-playfair text-secondary">{watch?.name} {watch?.model}</h1>
               <p className="text-2xl text-primary font-medium mt-2 mb-6">${watch?.price}</p>
               <hr />
-              <p className="text-sub text-[15px] mt-4">{watch?.shortDescription} There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+              <p className="text-sub text-[15px] mt-4">{watch?.shortDescription}</p>
               <div className="mt-6 flex items-center space-x-4 text-[15px] mb-4">
                 <p className="text-sub font-semibold">Availability: <span className="text-primary text-base font-bold">{watch?.stock > 0 ? "In Stock" : "Out Of Stock"}</span></p>
               </div>

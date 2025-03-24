@@ -14,6 +14,7 @@ const WatchCard = ({ watch }) => {
             />
             <div className="p-4 text-center">
                 <h3 className="text-sm md:text-base text-secondary mb-1">{watch.name}</h3>
+                <p className="text-sm md:text-base text-secondary mb-1">{watch.model}</p>
                 <p className="text-sm md:text-base text-primary">${watch.price}</p>
             </div>
         </Link>
