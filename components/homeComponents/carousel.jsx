@@ -6,8 +6,8 @@ import { useState } from "react";
 const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const images = [
-        "/carousel1.jpg",
-        "/carousel2.jpg"
+        "/shop/dark.jpg",
+        "/shop/dark2.jpg"
     ];
 
     const handleNext = () => {
