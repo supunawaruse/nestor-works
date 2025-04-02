@@ -9,55 +9,80 @@ const Footer = () => {
         { title: "Shop", path: "/shop" },
         { title: "About", path: "/about" },
         { title: "Contact", path: "/contact" }
-    ]
+    ];
+
     return (
-        <footer className="bg-[#F5F3F2] md:px-24 lg:px-64 py-4 px-4">
-            <div className="flex flex-col md:flex-row md:justify-between gap-y-4">
-                {/* Logo Column */}
-                <div className="mb-1 text-sm">
-                    <Image src="/logo.png" height={403} width={817} className='h-auto w-32 xs:w-44' alt='Logo' />
+        <footer className="bg-[#F5F3F2] px-4 py-8 md:px-24 lg:px-64">
+            <div className="max-w-7xl mx-auto">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+                    <div className="flex flex-col items-center sm:items-start">
+                        <Image
+                            src="/logo.png"
+                            height={403}
+                            width={817}
+                            className='h-auto w-32 xs:w-44 mb-4 sm:mb-0'
+                            alt='Logo'
+                        />
+                    </div>
+
+                    <div className="flex flex-col items-center sm:items-start">
+                        <h3 className="text-base font-semibold mb-4 text-center sm:text-left">Quick Links</h3>
+                        <ul className="space-y-2 text-center sm:text-left">
+                            {links.map((link, idx) => (
+                                <li key={idx}>
+                                    <Link
+                                        href={link.path}
+                                        className="text-secondary text-sm hover:text-primary transition duration-300"
+                                    >
+                                        {link.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="flex flex-col items-center sm:items-start">
+                        <h3 className="text-base font-semibold mb-4 text-center sm:text-left">Contact Us</h3>
+                        <div className="space-y-3 text-center sm:text-left">
+                            <div className="flex items-center justify-center sm:justify-start gap-2">
+                                <Phone color='#AE845F' size={18} />
+                                <span className="text-secondary text-sm">091 22 58 306</span>
+                            </div>
+                            <div className="flex items-center justify-center sm:justify-start gap-2">
+                                <MapPin color='#AE845F' size={18} />
+                                <span className="text-secondary text-sm">No 50, Station Road, Ambalangoda</span>
+                            </div>
+                            <div className="flex items-center justify-center sm:justify-start gap-2">
+                                <Mail color='#AE845F' size={18} />
+                                <a
+                                    href='mailto:nestorworks1914@gmail.com'
+                                    className="text-secondary text-sm hover:text-primary"
+                                >
+                                    nestorworks1914@gmail.com
+                                </a>
+                            </div>
+                            <div className="flex items-center justify-center sm:justify-start gap-2">
+                                <Facebook color='#AE845F' size={18} />
+                                <a
+                                    href='https://web.facebook.com/nestorworks'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className="text-secondary text-sm hover:text-primary"
+                                >
+                                    @nestorworks
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Links Column */}
-                <div className="md:py-2">
-                    <h3 className="text-base font-semibold mb-4">Links</h3>
-                    <ul className="space-y-2">
-                        {links.map((link, idx) => (
-                            <li key={idx}>
-                                <Link href={link.path} className="text-secondary text-sm hover:text-primary transition duration-300">
-                                    {link.title}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                <div className="mt-8 pt-4 border-t border-gray-200">
+                    <p className="text-secondary text-xs text-center">
+                        &copy; {new Date().getFullYear()} Nestor Works. All rights reserved.
+                    </p>
                 </div>
-
-                {/* Contact Info Column */}
-                <div className="text-sm space-y-4 md:py-2">
-                    <div className="flex items-center gap-2">
-                        <Phone color='#AE845F' />
-                        <span className="text-secondary">091 22 58 306</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <MapPin color='#AE845F' />
-                        <span className="text-secondary">No 50, Station Road, Ambalangoda</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Mail color='#AE845F' />
-                        <a href='nestorworks1914@gmail.com' className="text-secondary">nestorworks1914@gmail.com</a>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Facebook color='#AE845F' />
-                        <a href='https://web.facebook.com/nestorworks' className="text-secondary">@nestorworks</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div className="text-center mt-4">
-                <p className="text-secondary text-sm">
-                    &copy; {new Date().getFullYear()} Nestor Works. All rights reserved.
-                </p>
             </div>
         </footer>
     );
