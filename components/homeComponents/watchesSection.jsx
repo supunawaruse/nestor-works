@@ -35,7 +35,7 @@ const WatchesSection = () => {
                 <div className="w-24 h-1 bg-primary mx-auto mt-2"></div>
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+            <div className="grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
                 {
                     loading ? (
                         <WatchesGridSkeleton />
@@ -47,7 +47,7 @@ const WatchesSection = () => {
                 }
             </div>
             <div className="flex justify-center md:space-x-6 my-8 flex-wrap gap-2">
-                <Link href={"/shop"} className="bg-secondary text-white text-sm px-10 py-3  hover:bg-primary transition duration-300">
+                <Link href={"/shop"} className="bg-secondary text-white rounded-sm text-sm px-10 py-3  hover:bg-primary transition duration-300">
                     See More
                 </Link>
             </div>

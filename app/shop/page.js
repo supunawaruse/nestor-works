@@ -62,7 +62,7 @@ const ShopPage = () => {
             q = query(q, limit(itemsPerPage));
             const querySnapshot = await getDocs(q);
             const watchesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
+            
             setWatches(watchesData);
             setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]);
         } catch (error) {

@@ -1,6 +1,7 @@
 import HeaderComponent from '@/components/headerComponent'
 import React from 'react'
-import { Phone, MapPin, Mail } from 'lucide-react'
+import { Phone, MapPin, Mail, Facebook } from 'lucide-react'
+import ContactForm from '@/components/contactForm'
 
 const Contact = () => {
     return (
@@ -11,7 +12,7 @@ const Contact = () => {
                     <div className="p-8">
                         <h2 className="font-playfair text-4xl text-secondary mb-4">How To Find Us</h2>
                         <p className="text-sub text-base mb-6">
-                        Get in touch with us to explore our collection of premium watches. Give us a call, send us an email, or fill out the contact form, and our team will be happy to assist you with any inquiries.
+                            Get in touch with us to explore our collection of premium watches. Give us a call, send us an email, or fill out the contact form, and our team will be happy to assist you with any inquiries.
                         </p>
                         <div className="space-y-4">
                             <div className="flex items-center gap-2">
@@ -24,53 +25,15 @@ const Contact = () => {
                             </div>
                             <div className="flex items-center gap-2">
                                 <Mail color='#AE845F' />
-                                <span className="text-secondary">nestorworks1914@gmail.com</span>
+                                <a href='https://nestorworks1914@gmail.com' className="text-secondary">nestorworks1914@gmail.com</a>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Facebook color='#AE845F' />
+                                <a href='https://web.facebook.com/nestorworks' className="text-secondary">@nestorworks</a>
                             </div>
                         </div>
                     </div>
-
-                    <div className="p-8">
-                        <h2 className="font-playfair text-4xl text-secondary mb-4">Contact Us</h2>
-                        <p className="text-sub mb-6">
-                            Your email address will not be published. Required fields are marked *
-                        </p>
-                        <form>
-                            <div className="mb-4">
-                                <input
-                                    className="w-full text-sm px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
-                                    type="text"
-                                    id="name"
-                                    placeholder="Your Name"
-
-                                    required
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <input
-                                    className="w-full text-sm px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
-                                    type="email"
-                                    id="email"
-                                    placeholder="Your Email"
-                                    required
-                                />
-                            </div>
-                            <div className="mb-6">
-                                <textarea
-                                    className="w-full text-sm px-4 py-3 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-primary"
-                                    id="message"
-                                    rows="4"
-                                    placeholder="Your Message"
-                                    required
-                                ></textarea>
-                            </div>
-                            <button
-                                type="submit"
-                                className="bg-primary text-white py-3 px-8 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary"
-                            >
-                                Get in Touch
-                            </button>
-                        </form>
-                    </div>
+                    <ContactForm />
                 </div>
             </div>
         </div>

@@ -91,8 +91,8 @@ const WatchPage = () => {
                 <Link href="/" className='hover:text-primary'>Home</Link> /{' '}
                 <Link href="/shop" className='hover:text-primary'>Shop</Link> / {watch?.name} {watch?.model}
               </p>
-              <h1 className="text-5xl font-normal font-playfair text-secondary">{watch?.name} {watch?.model}</h1>
-              <p className="text-2xl text-primary font-medium mt-2 mb-6">${watch?.price}</p>
+              <h1 className="text-5xl font-normal font-playfair text-secondary">{watch?.name}</h1>
+              <p className="text-2xl text-primary font-medium mt-2 mb-6">{watch?.model}</p>
               <hr />
               <p className="text-sub text-[15px] mt-4">{watch?.shortDescription}</p>
               <div className="mt-6 flex items-center space-x-4 text-[15px] mb-4">

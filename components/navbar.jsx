@@ -19,7 +19,7 @@ const NavLink = ({ link, pathname, onClick }) => {
     return (
         <Link
             href={link.path}
-            className={`${isActive ? "text-primary font-semibold" : "text-secondary"} hover:text-primary`}
+            className={`${isActive ? "text-primary font-semibold" : "text-secondary"} hover:text-primary text-base`}
             onClick={onClick}
         >
             {link.title}

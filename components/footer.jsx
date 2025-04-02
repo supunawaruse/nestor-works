@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Facebook } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -44,9 +44,12 @@ const Footer = () => {
                     </div>
                     <div className="flex items-center gap-2">
                         <Mail color='#AE845F' />
-                        <span className="text-secondary">nestorworks1914@gmail.com</span>
+                        <a href='nestorworks1914@gmail.com' className="text-secondary">nestorworks1914@gmail.com</a>
                     </div>
-
+                    <div className="flex items-center gap-2">
+                        <Facebook color='#AE845F' />
+                        <a href='https://web.facebook.com/nestorworks' className="text-secondary">@nestorworks</a>
+                    </div>
                 </div>
 
             </div>

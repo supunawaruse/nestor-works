@@ -9,56 +9,56 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url("/public/fonts/Roboto-Regular.ttf") format("woff2");
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("/public/fonts/Roboto-Medium.ttf") format("woff2");
+  src: url("/fonts/Roboto-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("/public/fonts/Roboto-SemiBold.ttf") format("woff2");
+  src: url("/fonts/Roboto-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("/public/fonts/Roboto-Bold.ttf") format("woff2");
+  src: url("/fonts/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Playfair Display";
-  src: url("/public/fonts/PlayfairDisplay-Regular.ttf") format("woff2");
+  src: url("/fonts/PlayfairDisplay-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Playfair Display";
-  src: url("/public/fonts/PlayfairDisplay-Medium.ttf") format("woff2");
+  src: url("/fonts/PlayfairDisplay-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Playfair Display";
-  src: url("/public/fonts/PlayfairDisplay-SemiBold.ttf") format("woff2");
+  src: url("/fonts/PlayfairDisplay-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Playfair Display";
-  src: url("/public/fonts/PlayfairDisplay-Bold.ttf") format("woff2");
+  src: url("/fonts/PlayfairDisplay-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }

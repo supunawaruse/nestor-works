@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc } from "firebase/firestore";
 import { db } from '@/lib/firebase';
 import { sampleWatches } from '@/lib/data';
 
@@ -27,9 +27,9 @@ const DetailsSection = () => {
         <div className='px-4 py-8 md:p-20 lg:px-24 2xl:px-48'>
             {/* <button onClick={onclick}>Click me</button> */}
             <div className="flex flex-col md:flex-row md:space-x-12">
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 md:px-8">
                     <Image
-                        src="/homedetails.jpg"
+                        src="/shop/cover5.png"
                         alt="Home Details"
                         width={800}
                         height={600}
@@ -43,8 +43,8 @@ const DetailsSection = () => {
                     <p className="text-sub mb-6 text-sm md:text-base">
                         For over a century, Nestor Works has been the go to destination in Sri Lanka for premium watches and expert watch repairs. Whether you're looking for a timeless classic or need professional servicing, we are dedicated to providing the best for our valued customers. Experience quality, trust, and excellence with every tick.
                     </p>
-                    <Link href="/shop" className="bg-secondary text-white text-sm px-10 py-4  hover:bg-primary transition duration-300">
-                        SHOP THE COLLECTION
+                    <Link href="/about" className="bg-secondary text-white text-[11px] sm:text-sm py-2 px-4 sm:px-8 rounded-sm sm:py-3  hover:bg-primary transition duration-300">
+                        Who We Are
                     </Link>
                 </div>
             </div>

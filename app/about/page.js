@@ -5,16 +5,22 @@ import React from 'react'
 const About = () => {
 
     const images = [
-        '/shop/shop1.jpg',
-        '/shop/shop2.jpg',
-        '/shop/shop3.jpg',
-        '/shop/shop4.jpg',
-        '/shop/shop5.jpg',
-        '/shop/shop1.jpg',
-        '/shop/shop2.jpg',
-        '/shop/shop3.jpg',
-        '/shop/shop4.jpg',
-        '/shop/shop5.jpg',
+        '/shop/shop-1.jpg',
+        '/shop/shop-2.jpg',
+        '/shop/shop-3.jpg',
+        '/shop/shop-4.jpg',
+        '/shop/shop-5.jpg',
+        '/shop/shop-6.jpg',
+        '/shop/shop-7.jpg',
+        '/shop/shop-8.jpg',
+        '/shop/shop-9.jpg',
+        '/shop/shop-10.jpg',
+        '/shop/shop-11.jpg',
+        '/shop/shop-12.jpg',
+        '/shop/shop-13.jpg',
+        '/shop/shop-14.jpg',
+        '/shop/shop-15.jpg',
+        '/shop/shop-16.jpg',
     ];
     return (
         <>
@@ -45,17 +51,19 @@ const About = () => {
                     For a century, we have been selling and repairing timeless watches that tell more than just time.
                     Explore our journey through the years with this collection of memorable moments.
                 </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {images.map((image, index) => (
-                        <div key={index} className="relative aspect-w-1 aspect-h-1 overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md rounded-sm">
-                            <Image
-                                src={image}
-                                alt={`Gallery Image ${index + 1}`}
-                                height={510}
-                                width={680}
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div key={index} className="relative aspect-w-1 aspect-h-1 overflow-hidden rounded-sm">
+                            <div className="group relative w-full h-full">
+                                <Image
+                                    src={image}
+                                    alt={`Gallery Image ${index + 1}`}
+                                    height={510}
+                                    width={680}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-125 group-hover:z-10"
+                                />
+                                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                            </div>
                         </div>
                     ))}
                 </div>
