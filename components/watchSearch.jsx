@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { collection, query, where, getDocs, or, limit } from 'firebase/firestore';
+import { collection, query, where, getDocs, or, limit, orderBy } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import { Search, X } from 'lucide-react';
 import { debounce } from 'lodash';
@@ -31,7 +31,6 @@ const WatchSearch = ({ isMobile = false }) => {
         };
     }, []);
 
-
     const debouncedSearch = useCallback(
         debounce(async (term) => {
             if (term.trim().length < 2) {
@@ -41,33 +40,44 @@ const WatchSearch = ({ isMobile = false }) => {
             }
 
             try {
+                setIsLoading(true);
                 const watchesRef = collection(db, 'watches');
-                const q = query(
-                    watchesRef,
-                    or(
-                        where('name', '>=', term),
-                        where('name', '<=', term + '\uf8ff'),
-                        where('model', '>=', term),
-                        where('model', '<=', term + '\uf8ff')
-                    ),
-                    limit(5)
-                );
+                const lowerTerm = term.toLowerCase().trim();
+                const watchesQuery = query(watchesRef, limit(50));
+                const snapshot = await getDocs(watchesQuery);
+                const rankedResults = snapshot.docs
+                    .map(doc => {
+                        const data = doc.data();
+                        const nameMatch = data.name_lower?.includes(lowerTerm);
+                        const modelMatch = data.model_lower?.includes(lowerTerm);
+                        let relevance = 0;
+                        if (nameMatch && modelMatch) relevance = 2;
+                        else if (data.name_lower?.startsWith(lowerTerm)) relevance = 1.5;
+                        else if (nameMatch) relevance = 1;
+                        else if (modelMatch) relevance = 0.5;
 
-                const querySnapshot = await getDocs(q);
-                const fetchedResults = querySnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
+                        return {
+                            id: doc.id,
+                            ...data,
+                            relevance,
+                            matchType: nameMatch
+                                ? (modelMatch ? 'both' : 'name')
+                                : 'model'
+                        };
+                    })
+                    .filter(item => item.relevance > 0)
+                    .sort((a, b) => b.relevance - a.relevance)
+                    .slice(0, 5);
 
-                setResults(fetchedResults);
-                setIsDropdownOpen(fetchedResults.length > 0);
+                setResults(rankedResults);
+                setIsDropdownOpen(rankedResults.length > 0);
             } catch (error) {
                 console.error('Error searching watches:', error);
                 setResults([]);
             } finally {
                 setIsLoading(false);
             }
-        }, 1000),
+        }, 500),
         []
     );
 
@@ -95,10 +105,11 @@ const WatchSearch = ({ isMobile = false }) => {
         router.push(`/shop/${watchId}`);
         setIsDropdownOpen(false);
         setSearchTerm('');
+        setResults([]);
     };
 
     return (
-        <div className="relative w-full max-w-md mx-4">
+        <div className="relative w-full max-w-md">
             <div className="relative flex items-center">
                 <input
                     ref={inputRef}

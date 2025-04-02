@@ -1,10 +1,12 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, Search } from 'lucide-react'
 import { usePathname } from "next/navigation";
 import WatchSearch from "./watchSearch";
+import { db } from "@/lib/firebase";
+import { collection, getDocs, writeBatch } from "firebase/firestore";
 
 const links = [
     { title: "Home", path: "/" },
@@ -33,12 +35,34 @@ const Navbar = () => {
     const [showMobileSearch, setShowMobileSearch] = useState(false);
     const pathname = usePathname();
 
+    useEffect(() => {
+        setIsOpen(false);
+        setShowMobileSearch(false);
+    }, [pathname]);
+
+    // const migrateWatches = async () => {
+    //     const querySnapshot = await getDocs(collection(db, 'watches'));
+    //     const batch = writeBatch(db);
+    
+    //     querySnapshot.forEach((doc) => {
+    //         const data = doc.data();
+    //         if (!data.name_lower || !data.model_lower) {
+    //             batch.update(doc.ref, {
+    //                 name_lower: data.name.toLowerCase(),
+    //                 model_lower: data.model.toLowerCase()
+    //             });
+    //         }
+    //     });
+    
+    //     await batch.commit();
+    //     console.log('Migration complete');
+    // };
     return (
         <div className="w-full h-20 flex items-center justify-between px-8 md:px-12 lg:px-16 shadow-md">
             <Link href="/">
                 <Image src="/logo.png" height={403} width={600} className='h-auto w-32 xs:w-36' alt='' />
             </Link>
-
+          
             <div className="hidden md:flex items-center ">
                 <div className="flex space-x-6 text-[15px] mx-auto">
                     {links.map((link, idx) => (
@@ -51,7 +75,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-      
+
             <div className="flex md:hidden items-center space-x-4">
                 <button onClick={() => setIsOpen(!isOpen)}>
                     <Menu />
