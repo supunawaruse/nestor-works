@@ -90,7 +90,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="p-8">
+        <div className="mt-8 md:mt-0">
             <h2 className="font-playfair text-4xl text-secondary mb-4">Contact Us</h2>
             <p className="text-sub mb-6">
                 Your email address will not be published. Required fields are marked *

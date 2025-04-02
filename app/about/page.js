@@ -35,17 +35,17 @@ const About = () => {
                     </div>
                     <div className="md:w-1/2 w-full lg:p-10 2xl:px-24">
                         <Image
-                            src="/about.jpg"
+                            src="/shop/shop-6.jpg"
                             alt="Our Mission Image"
                             height={470}
                             width={630}
-                            className="w-full h-auto object-cover"
+                            className="w-full h-auto object-cover rounded-sm"
                         />
                     </div>
                 </div>
             </div>
 
-            <div className="container mx-auto px-4 mb-4 md:mb-8">
+            <div className="px-6 py-8 md:px-20 lg:px-24 2xl:px-48">
                 <h2 className="text-secondary text-3xl md:text-5xl font-playfair text-center mb-4">Celebrating 100 Years of Excellence</h2>
                 <p className="text-center text-sm text-sub mb-8 max-w-2xl mx-auto">
                     For a century, we have been selling and repairing timeless watches that tell more than just time.
@@ -60,7 +60,7 @@ const About = () => {
                                     alt={`Gallery Image ${index + 1}`}
                                     height={510}
                                     width={680}
-                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-125 group-hover:z-10"
+                                    className="w-full rounded-sm h-full object-cover transition-transform duration-300 group-hover:scale-125 group-hover:z-10"
                                 />
                                 <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                             </div>

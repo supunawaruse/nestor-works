@@ -7,9 +7,9 @@ const Contact = () => {
     return (
         <div>
             <HeaderComponent title="Contacts" />
-            <div className='py-8 md:py-12 px-4 md:px-12 lg:px-24 2xl:px-48'>
+            <div className='px-6 py-8 md:py-12  md:px-12 lg:px-24 2xl:px-48'>
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                    <div className="p-8">
+                    <div className="">
                         <h2 className="font-playfair text-4xl text-secondary mb-4">How To Find Us</h2>
                         <p className="text-sub text-base mb-6">
                             Get in touch with us to explore our collection of premium watches. Give us a call, send us an email, or fill out the contact form, and our team will be happy to assist you with any inquiries.
