@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import HeaderComponent from '@/components/headerComponent';
 import { collection, getDocs, query, where, limit, startAfter, orderBy, getCountFromServer } from 'firebase/firestore';
@@ -12,7 +12,7 @@ import AppliedFilters from '@/components/appliedFilter';
 import FilterSection from '@/components/filterSection';
 import WatchesGridSkeleton from '@/components/skeletons/watchesGridSkeleton';
 
-const ShopPage = () => {
+const ShopPageContent  = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
 
@@ -192,5 +192,13 @@ const ShopPage = () => {
         </div>
     );
 };
+
+const ShopPage = () => {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ShopPageContent />
+      </Suspense>
+    );
+  };
 
 export default ShopPage;
