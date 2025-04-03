@@ -2,7 +2,7 @@ import { db } from "@/lib/firebase";
 import { collection, query, orderBy, limit, where, getDocs, doc, getDoc } from "firebase/firestore";
 
 export const getCollectionSectionData = async () => {
-    const q = query(collection(db, "watches"), orderBy("createdAt"), limit(8));
+    const q = query(collection(db, "watches"), orderBy("model"), limit(8));
     const querySnapshot = await getDocs(q);
 
     const watchesData = querySnapshot.docs.map(doc => ({

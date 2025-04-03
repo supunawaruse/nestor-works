@@ -18,9 +18,8 @@ const ShopPageContent  = () => {
 
     const [filters, setFilters] = useState({
         category: searchParams.get('category') || '',
-        dialColor: searchParams.get('dialColor') || '',
+        dial: searchParams.get('dial') || '',
         brand: searchParams.get('brand') || '',
-        price: searchParams.get('price') || '',
     });
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -39,17 +38,13 @@ const ShopPageContent  = () => {
         try {
             setLoading(true);
             const watchesCollection = collection(db, 'watches');
-            let q = query(watchesCollection, orderBy('price'));
+            let q = query(watchesCollection, orderBy('model'));
 
-            const { category, brand, price, dialColor } = filters;
-            let minPrice, maxPrice;
-            if (price) {
-                [minPrice, maxPrice] = price.split('-').map(Number);
-                q = query(q, where('price', '>=', minPrice), where('price', '<=', maxPrice));
-            }
+            const { category, brand, dial } = filters;
+
             if (category) q = query(q, where('category', '==', category));
             if (brand) q = query(q, where('brand', '==', brand));
-            if (dialColor) q = query(q, where('dialColor', '==', dialColor));
+            if (dial) q = query(q, where('dial', '==', dial));
 
             const countSnapshot = await getCountFromServer(q);
             const totalCount = countSnapshot.data().count;
@@ -106,7 +101,7 @@ const ShopPageContent  = () => {
     };
 
     const handleClearAllFilters = () => {
-        const newFilters = { category: '', brand: '', price: '', dialColor: '' };
+        const newFilters = { category: '', brand: '', dial: '' };
         setFilters(newFilters);
         setCurrentPage(1);
         setLastVisible(null);
@@ -143,16 +138,10 @@ const ShopPageContent  = () => {
                             onChange={(value) => handleFilterChange('brand', value)}
                         />
                         <FilterSection
-                            title="Price"
-                            items={PRICE}
-                            selectedItem={filters.price}
-                            onChange={(value) => handleFilterChange('price', value)}
-                        />
-                        <FilterSection
-                            title="Dial Color"
+                            title="Dial Details"
                             items={DIALCOLORS}
-                            selectedItem={filters.dialColor}
-                            onChange={(value) => handleFilterChange('dialColor', value)}
+                            selectedItem={filters.dial}
+                            onChange={(value) => handleFilterChange('dial', value)}
                         />
                     </div>
                 </div>

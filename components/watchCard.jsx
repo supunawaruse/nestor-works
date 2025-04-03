@@ -13,8 +13,8 @@ const WatchCard = ({ watch }) => {
                 className="w-full h-auto object-cover"
             />
             <div className="p-4 text-center">
-                <h3 className="text-sm md:text-base font-semibold text-secondary mb-1">{watch.name}</h3>
-                <p className="text-sm md:text-lg text-primary">{watch.model}</p>
+            <h3 className="text-sm md:text-lg font-bold text-secondary uppercase">{watch.brand} {watch.name}</h3>
+            <p className="text-sm md:text-base text-primary">Model No - {watch.model}</p>
             </div>
         </Link>
     )

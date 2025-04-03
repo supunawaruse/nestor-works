@@ -149,7 +149,7 @@ const WatchSearch = ({ isMobile = false }) => {
                             className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-100 last:border-b-0 flex justify-between"
                         >
                             <div>
-                                <div className="font-medium text-secondary">{watch.name}</div>
+                                <div className="font-medium text-secondary">{watch.brand} {watch.name}</div>
                                 <div className="text-sm text-primary">{watch.model}</div>
                             </div>
                             <div>

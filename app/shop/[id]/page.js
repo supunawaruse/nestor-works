@@ -5,14 +5,13 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { getWatchByDocumentId } from '@/services/firebaseServices';
 import SingleImageSkeleton from '@/components/skeletons/singleImageSkeleton';
-import SmallImagesSkeleton from '@/components/skeletons/smallImagesSkeleton';
+// import SmallImagesSkeleton from '@/components/skeletons/smallImagesSkeleton';
 import WatchDetailsSkeleton from '@/components/skeletons/watchDetailsSkeleton';
 import RelatedProducts from '@/components/relatedProducts';
 
 const WatchPage = () => {
   const [watch, setWatch] = useState();
   const [loading, setLoading] = useState(true);
-  const [quantity, setQuantity] = useState(1);
   const params = useParams();
 
   const fetchWatch = async () => {
@@ -91,7 +90,7 @@ const WatchPage = () => {
                 <Link href="/" className='hover:text-primary'>Home</Link> /{' '}
                 <Link href="/shop" className='hover:text-primary'>Shop</Link> / {watch?.name} {watch?.model}
               </p>
-              <h1 className="text-5xl font-normal font-playfair text-secondary">{watch?.name}</h1>
+              <h1 className="text-5xl font-normal font-playfair text-secondary">{watch?.brand} {watch?.name}</h1>
               <p className="text-2xl text-primary font-medium mt-2 mb-6">{watch?.model}</p>
               <hr />
               <p className="text-sub text-[15px] mt-4">{watch?.shortDescription}</p>
@@ -106,7 +105,7 @@ const WatchPage = () => {
                     Brand: <span className="text-secondary font-medium">{watch?.brand}</span>
                   </p>
                   <p className="text-sub text-[15px] font-semibold">
-                    Dial Color: <span className="text-secondary font-medium">{watch?.dialColor}</span>
+                    Dial Color: <span className="text-secondary font-medium">{watch?.dial}</span>
                   </p>
                 </div>
 
@@ -121,7 +120,7 @@ const WatchPage = () => {
 
                 <div className="space-y-2 md:col-span-2">
                   <p className="text-sub text-[15px] font-semibold">
-                    Strap Material: <span className="text-secondary font-medium">{watch?.strapMaterial}</span>
+                    Strap Material: <span className="text-secondary font-medium">{watch?.strapMeterial}</span>
                   </p>
                   <p className="text-sub text-[15px] font-semibold">
                     Movement Type: <span className="text-secondary font-medium">{watch?.movementType}</span>
@@ -144,7 +143,9 @@ const WatchPage = () => {
       </div>
 
       {loading ? (
-        <p>loading</p>
+        <div className="flex justify-center">
+          <div className="w-6 h-6 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+        </div>
       ) : (
         <RelatedProducts category={watch?.category} />
       )}
