@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react'
 
 const ShopWatchesGrid = ({ watches }) => (
-    <div className="grid grid-cols-1 xxs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 p-2">
+    <div className="grid grid-cols-1 xxs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 p-2">
         {watches.map(watch => (
             <Link href={`/shop/${watch.id}`} key={watch.id} className="group overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-md">
                 <Image

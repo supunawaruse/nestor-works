@@ -72,6 +72,7 @@ const ShopPageContent  = () => {
         setFilters(newFilters);
         setCurrentPage(1);
         setLastVisible(null);
+        setIsFilterOpen(false)
 
         const params = new URLSearchParams();
         Object.entries(newFilters).forEach(([k, v]) => v && params.set(k, v));
@@ -124,7 +125,7 @@ const ShopPageContent  = () => {
                     >
                         Filters {isFilterOpen ? <ChevronUp /> : <ChevronDown />}
                     </button>
-                    <div className={`${isFilterOpen ? 'block' : 'hidden'} md:block bg-white py-4 md:p-4`}>
+                    <div className={`${isFilterOpen ? 'block' : 'hidden'} md:block bg-white py-4 md:p-4 lg:px-8`}>
                         <FilterSection
                             title="Categories"
                             items={CATEGORIES}
