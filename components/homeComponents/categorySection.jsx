@@ -7,8 +7,8 @@ const CategorySection = () => {
   const categories = [
     { id: 1, image: '/categories/mens.png', name: 'Mens Watches', path: 'Mens' },
     { id: 2, image: '/categories/womens.png', name: 'Ladies Watches', path: 'Ladies' },
-    { id: 3, image: '/categories/sports.png', name: 'Sports Watches', path: 'Sports' },
-    { id: 4, image: '/categories/dress.png', name: 'Dress Watches', path: 'Dress' },
+    { id: 3, image: '/categories/sports.png', name: 'Sports Watches', path: 'Sport' },
+    { id: 4, image: '/categories/smart.png', name: 'Smart Watches', path: 'Smart' },
   ];
 
   return (
