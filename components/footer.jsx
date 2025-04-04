@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Facebook } from 'lucide-react';
+import { Mail, MapPin, Phone, Facebook, Heart, LucideHeart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -80,9 +80,12 @@ const Footer = () => {
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-gray-200">
-                    <p className="text-secondary text-xs text-center">
+                    <p className="text-secondary text-xs text-center mb-2">
                         &copy; {new Date().getFullYear()} Nestor Works. All rights reserved.
                     </p>
+                    <div className="flex items-center text-secondary text-xs text-center justify-center">
+                        Made with  <LucideHeart size={16} fill='#ae845f' color='#ae845f' className='mx-1' /> by <Link href="https://www.linkedin.com/in/supuna-warusawithana" className='ml-1'>Supuna Warusawithana</Link>
+                    </div>
                 </div>
             </div>
         </footer>
