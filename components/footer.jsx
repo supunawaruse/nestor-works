@@ -8,7 +8,9 @@ const Footer = () => {
         { title: "Home", path: "/" },
         { title: "Shop", path: "/shop" },
         { title: "About", path: "/about" },
-        { title: "Contact", path: "/contact" }
+        { title: "Contact", path: "/contact" },
+        { title: "Privacy Policy", path: "/privacy" },
+        { title: "Terms and Conditions", path: "/terms" }
     ];
 
     return (
@@ -29,18 +31,17 @@ const Footer = () => {
 
                     <div className="flex flex-col items-center sm:items-start">
                         <h3 className="text-base font-semibold mb-4 text-center sm:text-left">Quick Links</h3>
-                        <ul className="space-y-2 text-center sm:text-left">
+                        <div className="grid grid-cols-2 gap-4 text-center sm:text-left">
                             {links.map((link, idx) => (
-                                <li key={idx}>
-                                    <Link
-                                        href={link.path}
-                                        className="text-secondary text-sm hover:text-primary transition duration-300"
-                                    >
-                                        {link.title}
-                                    </Link>
-                                </li>
+                                <Link
+                                    key={idx}
+                                    href={link.path}
+                                    className="text-secondary text-sm hover:text-primary transition duration-300"
+                                >
+                                    {link.title}
+                                </Link>
                             ))}
-                        </ul>
+                        </div>
                     </div>
 
                     <div className="flex flex-col items-center sm:items-start">
